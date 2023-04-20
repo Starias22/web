@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>Services</title>
+    <script src="../angular.min.js"></script>
+
+
+    <script>
+        var app = angular.module('myApp', []);
+        app.controller('myCtrl', function($scope, $http) {
+        $http.get("welcome.htm")
+        .then(function(response) {
+        $scope.myWelcome = response.data;
+        });
+        });
+    </script>
+</head>
+
+
+<body>
+    <div ng-app="myApp" ng-controller="myCtrl">
+        <h1>{{'Services'}}</h1>
+
+    <p>Today's welcome message is:</p>
+
+    <h2>{{myWelcome}}</h2>
+
+    </div>
+
+    <p>The $http service requests a page on
+    the server, and the response is set
+        as the value of the "myWelcome"
+        variable.</p>
+</body>
+</html>

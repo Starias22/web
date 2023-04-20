@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AngularJS modules</title>
+<script src="../angular.min.js"></script>
+
+</head>
+<body>
+<h1>AngularJS modules</h1>
+<p ng-app="myApp">{{'Use of the previously creted method'}}</p>
+</body>
+<script >
+    //creation of the module
+    let app=angular.module('myApp',[]);
+    //app contains the module created
+    //load for use
+    let myApp=angular.module('myApp');
+</script>
+</html>

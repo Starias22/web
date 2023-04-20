@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>Filter</title>
+    <script src="./angular.min.js"></script>
+    <script>
+        let app=angular.module('app',[]);
+            app.controller('ctrl',function($scope,$filter){
+                $scope.foods=['meal','orange','rice','mango','fish',
+                'pineapple','casava','milc'];
+                $scope.testupper=$filter('upper')('abcdefg');
+                });
+
+
+
+//a filter that reverses a string
+    app.filter('reverse', function() {
+    return function(input) {
+        return input.split('').reverse().join('');
+    };
+    });
+
+    //removes items of a list starting with 'm'
+    app.filter('filt', function (){
+        return function(lst){
+        for(let i=0;i<lst.length;i++)
+            if(lst[i][0]=='m')
+                lst.splice(i,1);
+        return lst;
+        };
+
+        });
+        //a filter that uppercasees a string
+    app.filter('upper', function() {
+        return function(input) {
+            return input.toUpperCase();
+        };
+        });
+        app.filter('index', function() {
+            return function(input,number) {
+                if (number<0||number>input.length)
+                    return null;
+                return input[number];
+            };
+            });
+
+
+
+
+
+    </script>
+</head>
+<body ng-app="app" ng-controller="ctrl">
+    <h1>{{'Filters'}}</h1>
+
+    <p>{{'abcdefgz'|reverse}}</p>
+<p>{{'string_to_reverse'|reverse}}</p>
+<p>{{'laval'|reverse}}</p>
+<p>{{foods|filt}}</p>
+<p>{{'UpperCaSe'|upper}}</p>
+<p>{{testupper}}</p>
+<p>{{'string'|index:2}}</p>
+
+
+
+
+
+
+
+</body>
+</html>

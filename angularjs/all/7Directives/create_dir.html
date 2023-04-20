@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Custom directives creation</title>
+    <script src="./angular.min.js"></script>
+    <script>
+        var app=angular.module('app',[]);
+        app.directive('helloWorld',function(){
+            let ddo={/*directive definition object*/
+            //restrict:'A',//atribute
+            template:'<b>Hello world!</b>'
+            };
+            return ddo;
+
+        });
+        app.directive('hello',function(){
+            let ddo={/*directive definition object*/
+            restrict:'AE',//atribute or element
+            scope:{
+                name:"@",
+                },
+            template:'<b>Hello {{name}}!</b>',
+            compile:alert("On load of page")
+            
+            };
+            return ddo;
+
+        });
+        app.directive('testHello',function(){
+
+            let ddo={/*directive definition object*/
+            restrict:'E',//atribute or element
+            scope:{
+                name:"@",
+                author:"@",
+                time:"@"
+                },
+            template:'<div>Hello <b>{{name}}</b>! I\'m  <b>{{author}}</b></div>',
+            //compile:alert("On load of page"),
+            link:function(scope,element,attr){
+            scope.author='Ezéchiel';
+            scope.time=0;
+            alert('Link');
+            element.css('color','orange');
+            //element.html("Name: <b>"+$scope.name +"</b>");
+            element.on('click',function(){
+                scope.time++;
+                alert(scope.name+': you clicked '+scope.time+' times.')
+            });
+            element.on('copy',function(){
+
+                alert(scope.name+': you cannot copy that element')
+            });
+
+            }
+
+            };
+            return ddo;
+
+        });
+
+        app.config(function($provide){
+            $provide.decorator('helloDirective',function($delegate){
+                //alert($delegate.length);
+                let directive=$delegate[0];
+
+                //directive.template='<p>Hello</p>';
+                return directive;
+            })
+
+});
+    </script>
+</head>
+<body ng-app="app">
+<h1>Custom directives creation</h1>
+<div hello-world></div><br>
+<hello></hello><br>
+<hello name="friends"></hello><br>
+<test-hello name="Jérémie" ></test-hello>
+<test-hello name="Jérémie" author="Jacob"></test-hello>
+
+
+
+</body>
+</html>

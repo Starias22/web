@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>Services</title>
+    <script src="../angular.min.js"></script>
+    <script>
+        let app=angular.module('app',[]);
+
+        app.controller('ctrl', function($scope,$location,$http,$timeout,$interval) {
+
+         $scope.url= $location.absUrl();
+         $http.get("built-in-services.html").then(function (response) {
+            $scope.myWelcome = response.data;
+          });
+
+          $scope.myHeader = "$timeout";
+          $timeout(function () {
+              $scope.myHeader+= " How are you today?";
+          }, 2000);
+
+          $scope.theTime = new Date().toLocaleTimeString();
+  $interval(function () {
+      $scope.theTime = new Date().toLocaleTimeString();
+  }, 1000);
+
+
+            });
+
+
+    </script>
+</head>
+<body ng-app="app" ng-controller="ctrl"  >
+    <h1>{{'Services'}}</h1>
+
+<h2>$location</h2>
+<p>Current url: <b ng-bind="url"></b> </p>
+<h2>$http</h2>
+<p>myWelcome: <b ng-bind="myWelcome"></b></p>
+
+
+<p>This header will change after two seconds:</p>
+
+<h2>{{myHeader}}</h2>
+
+</div>
+<p>The $timeout service runs a function after a specified number of milliseconds.</p>
+
+<h1>{{theTime}}</h1>
+
+</div>
+
+<p>The $interval service runs a function every specified millisecond.</p>
+
+</body>
+</html>

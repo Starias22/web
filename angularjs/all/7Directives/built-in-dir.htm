@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bulit-in directives</title>
+    <script src="../angular.min.js"></script>
+    <script>
+var app=angular.module('app',[]);
+    app.controller("ctrl",function($scope){
+        $scope.textInput={
+            value:'5'
+        };
+        $scope.numberInput={
+            value:5
+        };
+        $scope.blockCopy=function(event){
+            event.preventDefault();
+        //console.log("Copying won't work");
+        alert("Copying won't work");
+        };
+        $scope.preventPaste=function(event){
+            event.preventDefault();
+            alert("Cannot paste text there");
+        };
+        $scope.lst=['lifle','is','beautiful'];
+        $scope.preventCut=function(event){
+            event.preventDefault();
+            alert('cannot cut this text');
+        };
+        $scope.dbClick=function(){
+        alert('Button double-clicked');
+        };
+        $scope.enter=function(){
+        alert('Mouse enter');
+        };
+        $scope.leave=function(){
+        alert('Mouse leave');
+        };
+    }
+    );
+
+
+
+    </script>
+</head>
+<body>
+<h1>Angular built-in directives</h1>
+<div ng-app="app"ng-controller='ctrl'>
+<input type="text" ng-model="textInput.value"/>
+{{textInput.value+5}}
+<input type="number" ng-model="numberInput.value"/>
+{{numberInput.value+5}}
+<h2>ng-show</h2>
+<p ng-show>This is a  hidden paragraph</p>
+<p ng-show="true">This is shown</p>
+
+<h2 ng-hide>ng-hide</h2>
+<p ng-hide="true">A hidden paragraph</p>
+
+<h2>ng-if</h2>
+<p ng-if>This para is removed</p>
+<p ng-if="true">This para is inserted, not removed</p>
+<p ng-if="test()"> Shown</p>
+
+<h2>ng-model</h2>
+<input type="text" ng-model="txt">
+<p>You enter {{txt}}.</p>
+<h2>ng-repeat</h2>
+<h3>Array</h3>
+<ul>My favourite fruits
+    <li ng-repeat="item in ['pineapple','orange','mango','apple']">
+    {{item}}
+    </li>
+</ul>
+<h3>Object</h3>
+<p ng-repeat="(key,value) in {'climate':20}">
+{{key+'==>'+value}}
+</p>
+<h3>Filter</h3>
+<input type="text" ng-model="searchText">
+<ul>First list
+<li ng-repeat="string in ['a','b','c','d'] | filter:searchText">
+{{string}}
+</li>
+</ul>
+<input type="text" ng-model="in">
+<ul>Second list
+    <li ng-repeat="string in ['a','b','a','a','c','d'] | filter:in as arr">
+        <h2>ng-options</h2>
+        {{string}}
+    </li>
+</ul>
+{{arr}} <br>
+{{arr.length}} matching(s)
+<ul>
+    <li ng-repeat="it in ['orange','apple','pineapple','mango']">
+{{'index '+$index}}: {{it}}
+{{$last}}
+{{$first}}
+{{$even}}
+{{$odd}}
+{{$middle}}
+</li>
+</ul>
+<h2>ng-model-options</h2>
+<input type="text" ng-model="myValue"
+ng-model-options="{'debounce': 500}">
+{{myValue}}
+
+<input type="text" ng-model="val"
+ng-model-options="{'updateOn': click}">
+{{val}}
+
+<h2>ng-copy</h2>
+<p ng-copy="blockCopy($event)">This paragraph cannot be copied</p>
+<h2>ng-paste</h2>
+<input ng-paste="paste=true" ng-init="paste=false" placeholder='paste here'>
+pasted: {{paste}}<br/>
+<input ng-paste="preventPaste($event)" placeholder="cannot paste here"/><br/>
+<h2>ng-cut</h2>
+<input type="text" ng-cut="preventCut($event)" placeholder="cannot cut"><br>
+
+<h2>ng-click</h2>
+<button ng-init="count=0" ng-click="count=count+1">Click me</button>
+you click {{count}} time<span ng-if="count>1">s</span>.
+$scope.var is used to access  var inside the controller
+
+<h2>ng-dblclick</h2>
+<button ng-dblclick="dbClick()">Double click please</button>
+<h2>ng-mouseenter</h2>
+    <input type="text" ng-mouseenter="enter()">
+    <h2>ng-mouseleaver</h2>
+    <input type="text" ng-mouseleave="leave()">
+
+
+<h2>ng-list</h2>
+<input type="text" ng-model="lst"ng-list=" ">
+
+
+<h2>ng-disabled</h2>
+<input type="text" ng-model="name"><br>
+<button type="submit"  value="Submit" ng-disabled="name.length<5">Submit</button>
+
+
+<style>
+    .active { background-color: green; color: white; }
+    .inactive { background-color: gray; color: white; }
+    .adminUser { font-weight: bold; color: yellow; }
+    .regularUser { color: white; }
+    </style>
+    <span ng-class="{
+    active: user.active,
+    inactive: !user.active,
+    adminUser: user.level === 1,
+    regularUser: user.level === 2
+    }">John Smith</span>
+    <h2>ng-pattern</h2>
+<input type="password" placeholder="your password" ng-pattern="\d{5}">
+
+
+
+
+    <h2>ng-bind</h2>
+    <input ng-model="y" ng-init="y=45">
+    <strong ng-bind="y"></strong>
+    <h2>ng-controller</h2>
+
+
+
+<h2>ng-minlength and ng-maxlength</h2>
+<input type="text" name="" ng-maxlength="10" id=""><br>
+<input type="text" name="" ng-minlength="5" id=""><br>
+<h2>ng-required</h2>
+<input type="text" name="" ng-required id=""><br>
+
+<h2>ng-href</h2>
+<div ng-init="link='yourlink'">
+    <a ng-href="link">Click to continu</a>
+</div>
+<h2>ng-src</h2>
+<div ng-init="pic='../imsp.png'">
+    <img ng-src="{{pic}}" alt="An image" >
+</div>
+<p ng-style="{color:'blue'}">A blue paragraph</p>
+
+<h2>ng-options</h2>
+<select name="fruits" id="fruits" ng-options="fruit for fruit in ['orange','apple','pineapple','mango']">
+
+</select>
+
+<h2>ng-value</h2>
+<h2>ng-cloak</h2>
+<h2>ng-include</h2>
+<h2>ng-selected</h2>
+<h2>ng-style</h2>
+
+</div>
+</div>
+</body>
+</html>

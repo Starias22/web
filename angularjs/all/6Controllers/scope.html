@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="../angular.min.js"></script>
+    <title>AngularJS $scope and $scopeRoot</title>
+</head>
+<body ng-app="myApp" >
+<h1>$scope and $scopeRoot</h1>
+<div ng-controller="myCtrl">
+<p> My favourite color:{{favouriteColor}}</p>
+</div>
+
+<div>
+    <p> My favourite color:{{favouriteColor}}</p>
+</div>
+</body>
+<script>
+    let app=angular.module('myApp',[]);
+    app.controller('myCtrl',function($scope){
+
+        $scope.favouriteColor='blue';
+
+    });
+    app.run(function($rootScope){
+    //alert('Hello');
+    $rootScope.favouriteColor='yellow';
+
+    })
+</script>
+</html>

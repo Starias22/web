@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>Constants</title>
+    <script src="./angular.min.js"></script>
+    <script>
+        let app=angular.module('app',[]);
+        app.constant('VERSION',2.5);
+        app.constant('APP_CONFIGS',{
+                APP_NAME:'angularApp',
+                APP_VERSION:1.0,
+                UP_TO_DATE:true,
+                LAST_UPDATE:Date()
+        });
+        app.constant('USER',['Ezéchiel', 20]);
+        
+        app.controller('ctrl',function(VERSION,APP_CONFIGS,USER){
+            this.version=VERSION;
+            this.app_configs=APP_CONFIGS;
+            this.user=USER;
+
+        });
+
+    </script>
+</head>
+<body ng-app="app" ng-controller="ctrl as cst" >
+    <h1>{{'Constants'}}</h1>
+<p>VERSION:{{cst.version}}</p>
+<p>next version:{{cst.version+1}}</p>
+<p>App configurations object:{{cst.app_configs}}</p>
+<ul>App configurations
+    <li>App name: {{cst.app_configs.APP_NAME}}</li>
+    <li>App version: {{cst.app_configs.APP_VERSION}}</li>
+    <li>is app up to date: {{cst.app_configs.APP_UP_TO_DATE}}</li>
+    <li>App last update: {{cst.app_configs.LAST_UPDATE}}</li>
+
+<p>User informations: {{cst.user}}</p>
+
+</ul>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compnent with angularJS</title>
+    <script src="./angular.min.js"></script>
+    <script>
+        //create a module named myApp
+        angular.module('myApp', []).
+        //create a component helloWorld
+        component('helloWorld', {
+    template: '<strong>Hello World!</strong>'
+    });
+    //alert("Component created")
+//another compnent
+var myApp=angular.module('myApp')//load the module
+    //alert("Let's go")
+    //create a component named how
+   myApp.component("how",{
+template:'<em>How does it go?</em>'
+   });
+   //component with parameter
+
+myApp.component("ident",{
+template:'<p>My name is <strong>{{$ctrl.name}}</strong>',
+    bindings:{name:'@'}
+});
+alert("ident component is created")
+
+myApp.component("hello",{
+template :'<p>Hello <strong>{{$ctrl.name}}</strong>.'+
+    'My name is <strong>{{$ctrl.myName}}</strong> </p>',
+bindings:{name:'@'},
+controller:function(){
+    this.myName='Ezéchiel';
+    //this.myName=this.name;
+    /*this.$onInit=function(){
+        this.myName=this.name;
+    }*/
+    //alert("OOG");
+}
+});
+myApp.component("comp",{});
+    alert("Successful");
+    </script>
+</head>
+<body>
+    <h1>Component with angularJS</h1>
+    <p>A component is a piece of HTML code that is written and can be reused</p>
+<div ng-app="myApp">
+<p> See: <hello-world></hello-world></p>
+<how></how>
+<ident name="Ezéchiel"></ident>
+
+<hello name="Gildas"></hello>
+<comp></comp>
+</div>
+</body>
+</html>

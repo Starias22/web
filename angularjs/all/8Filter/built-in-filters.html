@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>Filter</title>
+    <script src="../angular.min.js"></script>
+    <script>
+        let app=angular.module('app',[]);
+            app.controller('ctrl',function($scope,$filter){
+                $scope.foods=['meal','orange','rice','mango','fish',
+                'pineapple','casava','milc'];
+
+                $scope.names = [
+        {name:'Jani',country:'Norway'},
+        {name:'Carl',country:'Sweden'},
+        {name:'Margareth',country:'England'},
+        {name:'Hege',country:'Norway'},
+        {name:'Joe',country:'Denmark'},
+        {name:'Gustav',country:'Sweden'},
+        {name:'Birgit',country:'Denmark'},
+        {name:'Mary',country:'England'},
+        {name:'Kai',country:'Norway'}
+        ];
+                });
+    </script>
+</head>
+<body ng-app="app" ng-controller="ctrl">
+    <h1>{{'Filters'}}</h1>
+    <p>uppercase: {{"Let's eat bro!" | uppercase}}</p>
+    <p>lowercase: {{"Let's eat bro!" | lowercase}}</p>
+    <p>The bag costs {{150 |currency}}</p>
+    <ul>foods: {{foods}}<li ng-repeat="item in foods| filter:'m'">{{item}}</li></ul>
+
+
+    <p>Looping with objects:</p>
+    <ul>
+      <li ng-repeat="x in names | orderBy:'country'">
+        {{ x.name + ', ' + x.country }}
+      </li>
+    </ul>
+
+
+
+
+
+</body>
+</html>

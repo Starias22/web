@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Data binding</title>
+<script src="../angular.min.js"></script>
+</head>
+
+<body ng-app>
+<h1>Data binding</h1>
+<h2>One-way data binding</h2>
+<h3>Using braces</h2>
+    <p ng-init="age=28" >I'm {{age}} years old</p>
+<h3>Using ng-bind</h3>
+<p>I'm <b ng-bind="age"></b> years old</p>
+
+
+<h2>Two-ways data binding(ng-model)</h2>
+<input type="text" ng-model="name"/> <b>{{name}}</b>
+</body>
+
+</html>

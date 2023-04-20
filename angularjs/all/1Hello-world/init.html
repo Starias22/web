@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>init</title>
+<script src="./angular.min.js"></script>
+</head>
+<body>
+<h1>ng-init directive: overview</h1>
+
+<div ng-app>
+{{'Joy to the world'}}
+<p ng-init="hello='Hello world!'">{{hello}}</p>
+<p>Say hello to the world:<b >{{hello}}</b></p>
+
+<p ng-init="age=20; firstname='Ezéchiel';
+lastname='ADEDE'"> I'm {{firstname+" "+lastname}} and I'm {{age}} years old</p>
+<p ng-init="age2=age+5">age2={{age2}}</p>
+<p ng-init="age2=age2*5">{{age2}}</p>
+</div>
+</body>
+</html>

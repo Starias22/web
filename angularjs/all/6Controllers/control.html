@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="../angular.min.js"></script>
+    <title>AngularJS controllers</title>
+</head>
+<body ng-app="myApp" >
+<h1>AngularJS controllers</h1>
+<div ng-controller="personCtrl">
+<p >Personal informations:
+    <div>Firstname: <b ng-bind="firstname"></b></div>
+    <div>Lastname: <b>{{lastname}}</b></div>
+    <div>Age: <b ng-bind="age"></b></div>
+</p>
+<p>{{describe()}}</p>
+</div>
+
+<div ng-controller="personCtrl">
+    <p ng-bind="describe()"></p>
+<input ng-model="tel"  type="tel" placeholder="Your phone number"><br>
+<p>My phone number is {{tel}}</p>
+</div>
+
+</body>
+<script>
+    let app=angular.module('myApp',[]);
+    app.controller('personCtrl',function($scope){
+        //thre variables are available
+        $scope.firstname="Ezéchiel";
+        $scope.lastname="ADEDE";
+        $scope.age=20;
+        $scope.tel=95824746;
+        //a function that describes a person
+        $scope.describe=function(){
+            return "I'm "+$scope.firstname+' '+
+            $scope.lastname+" and I'm "+
+            $scope.age+ " years old";
+        };
+    });
+</script>
+</html>

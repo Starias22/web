@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Expressions</title>
+<script src="./angular.min.js"></script>
+</head>
+<body ng-app>
+<h1>AnjularJS expressions</h1>
+<p >4*5+6-3=<b>{{4*5+6-3}}</b> <br></p>
+<p >44/3=<b>{{45/3}}</b> <br></p>
+<p >45%3=<b>{{45%3}}</b> <br></p>
+
+<p ng-init="my_favourite='blue'" style="background-color:{{my_favourite}} ">A simple text on blue background</p>
+<p ng-init="fruits=['orange','mango','bananas','apple']">{{fruits}}</p>
+
+<p>My second favourite frit is {{fruits[1]}}</p>
+<p ng-init="marks={maths:15,english:20}">{{marks}}</p>
+
+<div ng-app="" ng-init="quantity=3;cost=5">
+
+<p>Total in dollar: {{ quantity * cost }}</p>
+<p>quantity:<b ng-bind="quantity"></b></p>
+<p>{{45<=2}} </p>
+<p>{{45!=45}} {{true}} {{!false}}</p>
+
+</div>
+
+</body>
+</html>
