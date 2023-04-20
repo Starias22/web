@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Utilities with Bootstrap   </title>
+    <meta charset="utf-8">
+
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ <!--link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script-->
+
+ <!--link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"-->
+  <!--script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script-->
+
+
+  <script src="../bootstrap.min.js"></script>
+<link rel="stylesheet" href="../bootstrap2.min.css">
+
+
+ <style>
+  span {
+    display: inline-block;
+    width: 70px;
+    height: 70px;
+    margin: 6px;
+    background-color: #f9f9f9;
+  }
+  </style>
+</head>
+
+<body>
+
+<div class="container mt-3">
+
+  <h2>Contextual Colors</h2>
+  <p>Use the contextual classes to provide "meaning through colors":</p>
+  <p class="text-muted">This text is muted.</p>
+  <p class="text-primary">This text is important.</p>
+  <p class="text-success">This text indicates success.</p>
+  <p class="text-info">This text represents some information.</p>
+  <p class="text-warning">This text represents a warning.</p>
+  <p class="text-danger">This text represents danger.</p>
+  <p class="text-secondary">Secondary text.</p>
+  <p class="text-dark">This text is dark grey.</p>
+  <p class="text-body">Default body color (often black).</p>
+  <p class="text-light">This text is light grey (on white background).</p>
+  <p class="text-white">This text is white (on white background).</p>
+
+  <h2>Opacity Text Colors</h2>
+  <p>Add 50% opacity for black or white text with the .text-black-50 or .text-white-50 classes:</p>
+  <p class="text-black-50">Black text with 50% opacity on white background</p>
+  <p class="text-white-50 bg-dark">White text with 50% opacity on black background</p>
+
+  <h2>Contextual Backgrounds</h2>
+  <p>Use the contextual background classes to provide "meaning through colors".</p>
+  <div class="bg-primary p-3">PrimarySuccess</div>
+  <div class="bg-success p-3">Success</div>
+  <div class="bg-info p-3">Information</div>
+  <div class="bg-warning p-3">Warning</div>
+  <div class="bg-danger p-3">Danger</div>
+  <div class="bg-secondary p-3">Secondary</div>
+  <div class="bg-dark p-3 text-white">Dark</div>
+  <div class="bg-light p-3">Light</div>
+
+  <h2>Visibility</h2>
+
+  <div class="visible">I am visible</div>
+<div class="invisible">I am invisible</div>
+
+<h2>Close icon</h2>
+
+
+<button type="button" class="btn-close"></button>
+
+<h2>shadow</h2>
+<div class="shadow-none p-4 mb-4 bg-light">No shadow</div>
+<div class="shadow-sm p-4 mb-4 bg-white">Small shadow</div>
+<div class="shadow p-4 mb-4 bg-white">Default shadow</div>
+<div class="shadow-lg p-4 mb-4 bg-white">Large shadow</div>
+
+<h2> Screen reader</h2>
+<span class="visually-hidden">I will be hidden on all screens except for screen readers.</span>
+
+  <h2>Borders</h2>
+  <p>Use the border classes to add or remove borders from an element:</p>
+
+  <div class="bg-dark">
+  <span class="border bg-primary">border</span>
+  <span class="border border-0 bg-primary">border-0</span>
+  <span class="border border-top-0 bg-primary">border-top-0</span>
+  <span class="border border-end-0 bg-primary">border-end-0</span>
+  <span class="border border-bottom-0 bg-primary">border-bottom-0</span>
+  <span class="border border-start-0 bg-primary">border-start-0</span>
+</div>
+
+<div class="bg-warning">
+  <span class="border-top bg-primary">border-top</span>
+  <span class="border-end bg-primary">border-end</span>
+  <span class="border-bottom bg-primary">border-bottom</span>
+  <span class="border-start bg-primary">border-start</span>
+</div>
+
+<h2>Border width</h2>
+<span class="border border-1"></span>
+<span class="border border-2"></span>
+<span class="border border-3"></span>
+<span class="border border-4"></span>
+<span class="border border-5"></span>
+
+<h2>Border colors</h2>
+
+<span class="border border-primary"></span>
+<span class="border border-secondary"></span>
+<span class="border border-success"></span>
+<span class="border border-danger"></span>
+<span class="border border-warning"></span>
+<span class="border border-info"></span>
+<span class="border border-light"></span>
+<span class="border border-dark"></span>
+<span class="border border-white"></span>
+
+<h2>Border radius</h2>
+
+<span class="border rounded border-primary">rounded</span>
+<span class="border rounded-top">rounded-top</span>
+<span class="border rounded-end">rounded-end</span>
+<span class="border rounded-bottom">rounded-bottom</span>
+<span class="border rounded-start">rounded-start</span>
+<span class="border rounded-circle">rounded-circle</span>
+<span class="border rounded-pill" style="width:150px">rounded-pill</span>
+<span class="border rounded-0">rounded-0</span>
+<span class="border rounded-1">rounded-1</span>
+<span class="border rounded-2">rounded-2</span>
+<span class="border rounded-3">rounded-3</span>
+<span class="border rounded-4">rounded-4</span>
+<span class="border rounded-5">rounded-5</span>
+
+<h2>Floats and clearfix</h2>
+
+<div class="clearfix">
+  <span class="float-start">Float left</span>
+  <span class="float-end">Float right</span>
+</div>
+<div class="clearfix">
+  <span class="float-start">Float left</span>
+</div>
+<div class="clearfix">
+  <span class="float-end">Float right</span>
+</div>
+<h2>Center align</h2>
+
+<div class="mx-auto bg-warning" style="width:150px">Centered</div>
+
+<h2>Vertical align</h2>
+<div class="bg-primary ">
+<span class="align-baseline">baseline</span>
+<span class="align-top">top</span>
+<span class="align-middle">middle</span>
+<span class="align-bottom">bottom</span>
+<span class="align-text-top">text-top</span>
+<span class="align-text-bottom">text-bottom</span>
+</div>
+
+
+<h2>Width</h2>
+<div class="w-25 bg-success">Width 25%</div>
+<div class="w-50 bg-warning">Width 50%</div>
+<div class="w-75 bg-danger">Width 75%</div>
+<div class="w-100 bg-primary">Width 100%</div>
+<div class="w-auto bg-dark text-white">Auto Width</div>
+<div class="mw-100 bg-info">Max Width 100%</div>
+
+<h2>Height</h2>
+
+<div style="height:200px;background-color:#ddd">
+  <div class="h-25 bg-success">Height 25%</div>
+  <div class="h-50 bg-warning">Height 50%</div>
+  <div class="h-75 bg-danger">Height 75%</div>
+  <div class="h-100 bg-info">Height 100%</div>
+  <div class="h-auto bg-primary">Auto Height</div>
+  <div class="mh-100 bg-dark text-white" style="height:500px">Max Height 100%</div>
+</div>
+
+<h2>Aspect ratio</h2>
+
+<!-- Aspect ratio 1:1 -->
+<div class="ratio ratio-1x1">
+  <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>
+</div>
+
+<!-- Aspect ratio 4:3 -->
+<div class="ratio ratio-4x3">
+  <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>
+</div>
+
+<!-- Aspect ratio 16:9 -->
+<div class="ratio ratio-16x9">
+  <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>
+</div>
+
+<!-- Aspect ratio 21:9 -->
+<div class="ratio ratio-21x9">
+  <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>
+</div>
+
+</div>
+
+<h2>Spacing</h2>
+
+<div class="pt-4 bg-warning">I only have a top padding (1.5rem)</div>
+<div class="p-5 bg-success">I have a padding on all sides (3rem)</div>
+<div class="m-5 pb-5 bg-info">I have a margin on all sides (3rem) and a bottom padding (3rem)</div>
+
+Bootstrap 5 has a wide range of responsive margin and padding utility classes.
+ They work for all breakpoints: xs (<=576px), sm (>=576px), md (>=768px), lg (>=992px), xl (>=1200px) or xxl (>=1400px)):
+
+The classes are used in the format: {property}{sides}-{size} for xs and {property}{sides}-{breakpoint}-{size} for sm, md, lg, xl and xxl.
+
+Where property is one of:
+<ul>
+<li> m - sets margin</li>
+<li>p - sets padding</li>
+</ul>
+
+Where sides is one of:
+
+<li>t - sets margin-top or padding-top</li>
+<li>b - sets margin-bottom or padding-bottom</li>
+<li>s - sets margin-left or padding-left</li>
+<li> e- sets margin-right or padding-right</li>
+<li>x - sets both padding-left and padding-right or margin-left and margin-right</li>
+<li>y - sets both padding-top and padding-bottom or margin-top and margin-bottom</li>
+<li>blank - sets a margin or padding on all 4 sides of the element</li>
+Where size is one of:
+<ul>
+<li>0 - sets margin or padding to 0</li>
+<li>1 - sets margin or padding to .25rem</li>
+<li>2 - sets margin or padding to .5rem</li>
+<li>3 - sets margin or padding to 1rem</li>
+<li>4 - sets margin or padding to 1.5rem</li>
+<li>5 - sets margin or padding to 3rem</li>
+<li>auto - sets margin to auto</li>
+</ul>
+
+</body>
+</html>

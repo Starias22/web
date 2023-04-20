@@ -1,0 +1,33 @@
+<h1>Database with Django</h1>
+
+{% include 'header.html' %}
+
+<p>There are {{count}} courses registered</p>
+<ul>There are:
+    {% for course in courses  %}
+    <li>{{course.name}}</li>
+    {% endfor %}
+</ul>
+<p>Courses: {{courses}}</p>
+<h2>Courses in a table</h2>
+<table>
+    <tr>
+        <th>Name<th>
+        <th>Already given?<th>
+        <th>Last update<th>
+        <th>id<th>
+    </tr>
+    {% for course in courses  %}
+    <tr>
+        <td>{{course.name}}<td>
+        {% if course.isGiven %}
+        <td>Yes<td>
+        {% else %}
+        <td>No<td>
+        {% endif %}
+        <td>{{course.lastUpdate}}<td>
+        <td>{{course.id}}<td>
+    </tr>
+    {% endfor %}
+</table>
+{% include 'footer.html' %}

@@ -1,0 +1,65 @@
+<h1>Django syntax</h1>
+{% comment %}
+<p>This is a comment</p>
+{% endcomment  %}
+{% with name='Andrew' %}
+<p>Hello {{name}}, how are you?</p>
+{% endwith %}
+
+{% with age=18 %}
+<p>I'm {{age}} years old</p>
+{% endwith %}
+
+{% with beautiful=True %}
+<p>Is she beautiful? {{beautiful}}</p>
+{% endwith %}
+
+
+{% with 1.5 as tail %}
+<p>Your tail is {{tail}} m</p>{% endwith %}
+
+<p>{{hello}}</p>
+<p>{{how}} Fine I hope!</p>
+<p>{{fruits}}</p>
+{% with hello as h %}
+<p>{{h}}</p>
+{% endwith %}
+
+<ul>My prefered fruits are:
+    {% for fruit in fruits %}
+    <li>{{fruit}}</li>
+    {% endfor %}
+</ul>
+
+
+{% if age == 25 %}
+<p>age is 25</p>
+{% endif %}
+
+
+{% if age == 18 %}
+<p>Of course. You're {{age}} years old</p>
+{% else %}
+<p>Not at all. You're {{age}} years old</p>
+
+{% endif %}
+
+
+
+{% if  age < 18 %}
+<p>You're not alowed to watch that film</p>
+
+{% elif age == 18 %}
+<p>You're just major</p>
+
+{% else %}
+<p>Okay you can!</p>
+
+{% endif %}
+
+{% if  1 == 1 or  2 == 3 %}
+<p>Yeah</p>
+{% endif %}
+
+
+
